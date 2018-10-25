@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <title></title>
+    <lnk rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <h1> Números</h1>
+          <p>Ingrese un número</p>
+          <input type="number" id="num-escrito" placeholder="ingrese un número" />
+          <div id="res-div" clas s="card-body" style="display:none">
+            <h4>Hecho relacionado:</h4>
+            <p id="res-text" class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    let rdiv = document.querySelector('#res -
+        div ');
+        let rte
+        xt = document.querySelector('#res -
+          text ');
+          let nescrito = document.querySelector('#num -
+              escrito ');
+              nescrito.addEventListener('input', obtenerResultadoAjax);
+
+              function obtenerResultadoAjax() {
+                let numero = nescrito.value;
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://numbersappi.com/' + numero);
+                xhr.onload = function() {
+                  if (this.status == 200 && numero != '') {
+                    rdiv.style.display = "block";
+                    rtext.innerText = this.responseText;
+                    console.log(this.responseText);
+                  }
+                }
+                xhr.sen
+                d();
+                console.log(numero);
+              }
+  </script>
+</body>
+
+</html>
