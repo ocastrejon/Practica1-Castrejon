@@ -22,20 +22,18 @@
       </div>
     </div>
   </div>
+ </body>
+  
   <script type="text/javascript">
-    let rdiv = document.querySelector('#res -
-        div ');
-        let rte
-        xt = document.querySelector('#res -
-          text ');
-          let nescrito = document.querySelector('#num -
-              escrito ');
+    let rdiv = document.querySelector('#res-div');
+        let rtext = document.querySelector('#res-text');
+          let nescrito = document.querySelector('#num-escrito');
               nescrito.addEventListener('input', obtenerResultadoAjax);
 
               function obtenerResultadoAjax() {
                 let numero = nescrito.value;
                 let xhr = new XMLHttpRequest();
-                xhr.open('GET', 'http://numbersappi.com/' + numero);
+                xhr.open('GET', 'http://numbersapi.com/' + numero);
                 xhr.onload = function() {
                   if (this.status == 200 && numero != '') {
                     rdiv.style.display = "block";
@@ -43,11 +41,8 @@
                     console.log(this.responseText);
                   }
                 }
-                xhr.sen
-                d();
+                xhr.send();
                 console.log(numero);
               }
   </script>
-</body>
-
 </html>
